@@ -1,7 +1,7 @@
 // Fill in your client ID and client secret that you obtained
 // while registering the application
-const clientID = '7e015d8ce32370079895'
-const clientSecret = '2b976af0e6b6ceea2b1554aa31d1fe94ea692cd9'
+const clientID = 'abcn82LQg9kXrVsI7CC0QG2Zap6SM6K4REsHQOl0'
+const clientSecret = 'ZDMmLZ7dsMacHhnK8AQLjiKwCb4joFkx2FylADePGKk56nbOJ1zuEyObhiyKLHiGz9dkq3oGLFKrn70dqvc9Zb28ECwovP0WA6TG0SofjO5SwXncsmNoSAOybpgd3Zy4'
 
 const Koa = require('koa');
 const path = require('path');
@@ -19,7 +19,7 @@ const oauth = async ctx => {
 
   const tokenResponse = await axios({
     method: 'post',
-    url: 'https://github.com/login/oauth/access_token?' +
+    url: 'https://arkid.demo.longguikeji.com/oauth/token/?' +
       `client_id=${clientID}&` +
       `client_secret=${clientSecret}&` +
       `code=${requestToken}`,
@@ -33,7 +33,7 @@ const oauth = async ctx => {
 
   const result = await axios({
     method: 'get',
-    url: `https://api.github.com/user`,
+    url: `https://arkid.demo.longguikeji.com/oauth/userinfo/`,
     headers: {
       accept: 'application/json',
       Authorization: `token ${accessToken}`
