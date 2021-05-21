@@ -6,20 +6,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Node OAuth2 Demo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  div {
+	display: block;
+        height: 200px;
+	text-align: center;
+		line-height: 200px;
+		background-color: #eeefef;
+}
+</style>
 </head>
 
 <body>
-        <a id="login">Login with GitHub</a>
-
+	<div>
+        <a id="login">Login with Arkid</a>
+       </div>
 <script>
   // fill in your cliend_id
   const client_id = 'abcn82LQg9kXrVsI7CC0QG2Zap6SM6K4REsHQOl0';
 
   const authorize_uri = 'https://arkid.demo.longguikeji.com/oauth/authorize/';
-  const redirect_uri = 'http://82.156.110.199:8080/oauth/redirect';
+  const redirect_uri = 'http://82.156.110.199:8081/oauth/redirect';
 
   const link = document.getElementById('login');
-  link.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  link.href = `${authorize_uri}?response_type=code&state=xyz&scope=read&client_id=${client_id}&redirect_uri=${redirect_uri}`;
 </script>
 
 </body>
